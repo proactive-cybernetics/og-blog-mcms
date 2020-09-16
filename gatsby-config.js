@@ -1,7 +1,9 @@
+require('dotenv').config()
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `新しい時代へ`,
+    description: `趣味は電子工作とホームページ作りです。`,
     author: `@gatsbyjs`,
   },
   plugins: [
@@ -30,5 +32,24 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    
+    {
+      resolve: "gatsby-source-microcms",
+      options: {
+        apiKey: process.env.MICROCMS_API,
+        serviceId: "og-blog",
+        apis: [
+          {
+            endpoint: "articles",
+          },
+          {
+            endpoint: "tags",
+          },
+          {
+            endpoint: "links",
+          },
+        ],
+      },
+    },
   ],
 }

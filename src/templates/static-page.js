@@ -4,14 +4,14 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import RightMenu from "../components/rightmenu"
 
-export default function BlogArticle({data}) {
-    const article = data.microcmsArticles
+export default function StaticPage({data}) {
+    const page = data.microcmsPages
     return (
         <Layout>
-            <SEO title={article.title} description={article.summary} />
+            <SEO title={page.title} description={page.title} />
             <div>
-                <h1>{article.title}</h1>
-                <div dangerouslySetInnerHTML={{ __html: article.body }}></div>
+                <h1>{page.title}</h1>
+                <div dangerouslySetInnerHTML={{ __html: page.body }}></div>
             </div>
             <RightMenu />
         </Layout>
@@ -20,7 +20,7 @@ export default function BlogArticle({data}) {
 
 export const query = graphql`
     query($slug: String!) {
-      microcmsArticles(slug: {eq: $slug}) {
+      microcmsPages(slug: {eq: $slug}) {
         title
         body
       }

@@ -48,6 +48,9 @@ module.exports = {
           {
             endpoint: "links",
           },
+          {
+            endpoint: "pages",
+          },
         ],
       },
     },

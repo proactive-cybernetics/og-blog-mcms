@@ -5,33 +5,19 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
+import Article from "../components/article"
+import RightMenu from "../components/rightmenu"
 
 const IndexPage = ({data}) => (
   <Layout>
     <SEO title="Home" />
     <h1>記事一覧</h1>
-    {data.allMicrocmsArticles.edges.map(edge => {
-      const article=edge.node
-      return (
-        <React.Fragment key={article.id}>
-            <div style={{border:"solid", borderColor:"black", margin:"1rem"}}>
-            <Link to={'/'+article.slug}>
-              <h2>{article.title}</h2>
-              <div>
-                <p>{article.summary}</p>
-              </div>
-            </Link>
-            <Image uri={article.coverimage.url} alt={article.title} height='200px' />
-            <p style={{fontWeight: 'bold'}}>タグ</p>
-            {article.tags.map(tag => (
-              <React.Fragment key={tag.id}>
-                <span> {tag.name} </span>
-              </React.Fragment>
-            ))}
-          </div>
-        </React.Fragment>
-      )
-    })}
+    <div id="div-articles">
+      {data.allMicrocmsArticles.edges.map(edge => {
+        return (<Article articleData={edge.node} />)
+      })}
+    </div>
+    <RightMenu />
   </Layout>
 )
 

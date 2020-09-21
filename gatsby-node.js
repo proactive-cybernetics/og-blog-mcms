@@ -25,12 +25,28 @@ exports.createPages = async ({ graphql, actions}) => {
                 }
             }
         }
+        allMicrocmsPages {
+            edges {
+                node {
+                    slug
+                }
+            }
+        }
     }`)
 
     result.data.allMicrocmsArticles.edges.forEach(({node}) =>
         createPage({
-            path: node.slug,
+            path: '/article/' + node.slug,
             component: path.resolve(`./src/templates/blog-article.js`),
+            context: {
+                slug: node.slug,
+            },
+        })
+    )
+    result.data.allMicrocmsPages.edges.forEach(({node}) =>
+        createPage({
+            path: '/page/' + node.slug,
+            component: path.resolve(`./src/templates/static-page.js`),
             context: {
                 slug: node.slug,
             },

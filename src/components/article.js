@@ -5,20 +5,26 @@ import Image from "./image"
 
 const Article = ({ articleData }) => (
         <React.Fragment key={articleData.id}>
-            <div style={{border:"solid", borderColor:"black", margin:"1rem"}}>
-            <Link to={'/article/'+articleData.slug}>
-              <h2>{articleData.title}</h2>
-              <div>
-                <p>{articleData.summary}</p>
-              </div>
-            </Link>
-            <Image uri={articleData.coverimage.url} alt={articleData.title} height='200px' />
-            <p style={{fontWeight: 'bold'}}>タグ</p>
-            {articleData.tags.map(tag => (
-              <React.Fragment key={tag.id}>
-                <span> {tag.name} </span>
-              </React.Fragment>
-            ))}
+          <div class={`article-summary`}>
+            <div class={`article-summary-row`}>
+                <Image uri={articleData.coverimage.url} alt={articleData.title} height='150px' />
+                <div style={{display: `inline-block`}}>
+                  <Link to={'/article/'+articleData.slug}>
+                    <h2>{articleData.title}</h2>
+                    <p>{articleData.summary}</p>
+                  </Link>
+                </div>
+            </div>
+            <div style={{display: `block`}}>
+              <p style={{fontWeight: 'bold'}}>タグ</p>
+              <p>
+                {articleData.tags.map(tag => (
+                  <React.Fragment key={tag.id}>
+                    <a href={"/tag/"+tag.slug}>{tag.name}</a>{`  `}
+                  </React.Fragment>
+                ))}
+              </p>
+            </div>
           </div>
         </React.Fragment>
 )

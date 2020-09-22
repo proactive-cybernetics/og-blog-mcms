@@ -9,7 +9,7 @@ export default function StaticPage({data}) {
     return (
         <Layout>
             <SEO title={page.title} description={page.title} />
-            <div>
+            <div style={{width: `60%`, float: `left`}}>
                 <h1>{page.title}</h1>
                 <div dangerouslySetInnerHTML={{ __html: page.body }}></div>
             </div>

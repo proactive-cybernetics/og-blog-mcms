@@ -24,23 +24,31 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
+    <div style={{
+      background: `#333`,
+      color: `silver`,
+      height: `100%`,
+      overflow: `hidden`,
+      minHeight: `100%`}}>
       <Header siteTitle={data.site.siteMetadata.title} />
       <div
         style={{
           margin: `0 auto`,
           maxWidth: 960,
           padding: `0 1.0875rem 1.45rem`,
+          overflow: `hidden`
         }}
       >
-        <main>{children}</main>
+        <main style={{width:`100%`, overflow: `hidden`}}>{children}</main>
         <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          <p style={{color: `silver`}}>
+            © {new Date().getFullYear()}, Built with
+            {` `}
+            <a href="https://www.gatsbyjs.org">Gatsby</a>
+          </p>
         </footer>
       </div>
-    </>
+    </div>
   )
 }
 

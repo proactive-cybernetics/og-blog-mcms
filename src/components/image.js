@@ -14,7 +14,10 @@ import Img from "gatsby-image"
  */
 
 const Image = ({uri, alt, height}) => {
-  return <img src={uri} alt={alt} height={height} width='auto' />
+  return (
+      <div style={{display:`inline-block`, float:`left`}}>
+        <img class={`thumbnail`} float={`left`} src={uri} alt={alt} height={height} width='auto' />
+      </div>)
 }
 
 export default Image

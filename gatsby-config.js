@@ -2,9 +2,9 @@ require('dotenv').config()
 
 module.exports = {
   siteMetadata: {
-    title: `新しい時代へ`,
+    title: `Proactive Cybernetics`,
     description: `趣味は電子工作とホームページ作りです。`,
-    author: `@gatsbyjs`,
+    author: `Oganesson`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

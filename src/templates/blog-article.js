@@ -9,7 +9,7 @@ export default function BlogArticle({data}) {
     return (
         <Layout>
             <SEO title={article.title} description={article.summary} />
-            <div>
+            <div style={{width: `60%`, float: `left`}}>
                 <h1>{article.title}</h1>
                 <div dangerouslySetInnerHTML={{ __html: article.body }}></div>
             </div>

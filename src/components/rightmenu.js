@@ -29,7 +29,7 @@ const RightMenu = () => {
     }
   `)    
   return (
-    <div id="div-menu">
+    <div id="div-menu" style={{width: `30%`, float: `right`}}>
       <h2>固定ページ</h2>
       {data.allMicrocmsPages.edges.map(edge => {
         return (<li><a href={'/page/'+edge.node.slug}>{edge.node.title}</a></li>)

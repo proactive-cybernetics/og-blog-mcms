@@ -14,7 +14,7 @@ import {
 
 
 const Sharebutton = ({ title, slug }) => {
-    const articleUrl = `http://proactive-cybernetics.netlify.app/articles/${slug}`
+    const articleUrl = `http://proactive-cybernetics.netlify.app/article/${slug}`
     return (
         <React.Fragment key={"share"}>
           <div style={{display: `inline-block`}}>

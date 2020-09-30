@@ -13,8 +13,7 @@ const Article = ({ articleData }) => (
               </div>
             </div>
             <div style={{display: `block`}}>
-              <p style={{fontWeight: 'bold'}}>タグ</p>
-              <p>
+              <p><span style={{fontWeight: 'bold'}}>タグ</span>{` `}
                 {articleData.tags.map(tag => (
                   <React.Fragment key={tag.id}>
                     <a href={"/tag/"+tag.slug}>{tag.name}</a>{`  `}

@@ -15,7 +15,7 @@ export default function BlogArticle({data}) {
                 <h1>{article.title}</h1>
                 <p><span>タグ :  
                   {article.tags.map(edge => {
-                      return (<a href={`/tags/${edge.slug}`}>{edge.name}{` `}</a>)
+                      return (<a href={`/tag/${edge.slug}`}>{edge.name}{` `}</a>)
                   })}
                 </span>{`  `}<span style={{textAlign: `right`}}>{article.publishedAt} by {article.writer}</span></p>
                 <div dangerouslySetInnerHTML={{ __html: article.body }}></div>

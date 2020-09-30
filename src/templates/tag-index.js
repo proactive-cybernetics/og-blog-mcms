@@ -51,6 +51,7 @@ export const query = graphql`
             tags {
               id
               name
+              slug
             }
           }
         }

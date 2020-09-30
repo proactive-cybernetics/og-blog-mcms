@@ -8,6 +8,12 @@ import "./layout.css"
 const RightMenu = () => {
   const data = useStaticQuery(graphql`
     query SiteDataQuery {
+      allMicrocmsArticles {
+        group(field: tags___slug) {
+          fieldValue
+          totalCount
+        }
+      }    
       allMicrocmsLinks {
         edges {
           node {
@@ -26,15 +32,32 @@ const RightMenu = () => {
           }
         }
       }
+      allMicrocmsTags {
+        edges {
+          node {
+            id
+            slug
+            name
+          }
+        }
+      }
     }
-  `)    
+  `)
+  const articles_group = data.allMicrocmsArticles.group
+  const tags_edges = data.allMicrocmsTags.edges
   return (
     <div id="div-menu" style={{width: `30%`, float: `right`}}>
-      <h2>固定ページ</h2>
+      <h3>タグ</h3>
+      {articles_group.map(edge => {
+        const tag_slug = edge.fieldValue
+        const tag_name = tags_edges.find(element => { return(element.node.slug == tag_slug)}).node.name
+        return (<li><a href={'/tag/' + tag_slug}>{tag_name}</a></li>)
+      })}
+      <h3>固定ページ</h3>
       {data.allMicrocmsPages.edges.map(edge => {
         return (<li><a href={'/page/'+edge.node.slug}>{edge.node.title}</a></li>)
       })}
-      <h2>リンク</h2>
+      <h3>リンク</h3>
       {data.allMicrocmsLinks.edges.map(edge => {
         return (<li><a href={edge.node.uri} target="_blank">{edge.node.name}</a></li>)
       })}

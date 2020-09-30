@@ -11,10 +11,16 @@ export default function BlogArticle({data}) {
         <Layout>
             <SEO title={article.title} description={article.summary} />
             <div style={{width: `60%`, float: `left`}}>
+                <a name="top"></a>
                 <h1>{article.title}</h1>
-                <p style={{textAlign: "right"}}>{article.publishedAt} by {article.writer}</p>
+                <p><span>タグ :  
+                  {article.tags.map(edge => {
+                      return (<a href={`/tags/${edge.slug}`}>{edge.name}{` `}</a>)
+                  })}
+                </span>{`  `}<span style={{textAlign: `right`}}>{article.publishedAt} by {article.writer}</span></p>
                 <div dangerouslySetInnerHTML={{ __html: article.body }}></div>
                 <Sharebutton slug={article.slug} title={article.title} />
+                <p style={{fontSize: `0.8rem`, paddingTop: `0.5rem`}}><a href="#top">↑先頭に戻る</a></p>
             </div>
             <RightMenu />
         </Layout>
@@ -29,6 +35,10 @@ export const query = graphql`
         slug
         publishedAt(formatString: "YYYY年M月D日")
         writer
+        tags {
+          name
+          slug
+        }      
       }
     }
 `

@@ -7,13 +7,10 @@ const Article = ({ articleData }) => (
         <React.Fragment key={articleData.id}>
           <div class={`article-summary`}>
             <div class={`article-summary-row`}>
-                <Image uri={articleData.coverimage.url} alt={articleData.title} height='150px' />
-                <div style={{display: `inline-block`}}>
-                  <Link to={'/article/'+articleData.slug}>
-                    <h2>{articleData.title}</h2>
-                    <p>{articleData.summary}</p>
-                  </Link>
-                </div>
+              <div style={{display: `inline-block`}}>
+              <h2><Link to={'/article/'+articleData.slug}>{articleData.title}</Link></h2>
+              <p>{articleData.summary}</p>
+              </div>
             </div>
             <div style={{display: `block`}}>
               <p style={{fontWeight: 'bold'}}>タグ</p>

@@ -53,12 +53,13 @@ template {
 a {
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
-  color: lightgray;
+  color: darkseagreen;
   text-decoration: none;
 }
 a:active,
 a:hover {
   outline-width: 0;
+  text-decoration: underline;
 }
 abbr[title] {
   border-bottom: 1px dotted hsla(0, 0%, 0%, 0.5);
@@ -402,7 +403,7 @@ p {
   margin-bottom: 1.45rem;
   font-size: 0.7rem;
 	font-family: sans-serif;
-	font-weight: 100;
+	font-weight: 300;
 	color: silver !important;
 }
 pre {
@@ -417,6 +418,8 @@ pre {
   overflow: auto;
   word-wrap: normal;
   padding: 1.45rem;
+  border: thin solid white;
+  border-radius: 5px;
 }
 table {
   margin-left: 0;
@@ -573,7 +576,6 @@ td:last-child {
 tt,
 code {
   background-color: hsla(0, 0%, 0%, 0.04);
-  border-radius: 3px;
   font-family: "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono",
     "Liberation Mono", Menlo, Courier, monospace;
   padding: 0;
@@ -622,4 +624,10 @@ img.thumbnail:after {
 .article-summary-row {
   display: block;
   clear: both;
+}
+
+#div-menu li {
+  font-size: 0.8rem;
+  padding-left: 20px;
+  list-style: none;
 }

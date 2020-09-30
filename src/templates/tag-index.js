@@ -31,7 +31,7 @@ export const query = graphql`
         filter: {
           tags: {
             elemMatch: 
-      	      {slug: {eq: "hardware"}}
+      	      {slug: {eq: $slug}}
           }
         }
       ) {

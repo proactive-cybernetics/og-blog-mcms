@@ -51,7 +51,7 @@ const RightMenu = () => {
       {articles_group.map(edge => {
         const tag_slug = edge.fieldValue
         const tag_name = tags_edges.find(element => { return(element.node.slug == tag_slug)}).node.name
-        return (<li><a href={'/tag/' + tag_slug}>{tag_name}</a></li>)
+        return (<li><a href={'/tag/' + tag_slug}>{tag_name}</a>{` `}({edge.totalCount})</li>)
       })}
       <h3>固定ページ</h3>
       {data.allMicrocmsPages.edges.map(edge => {

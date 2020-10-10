@@ -11,7 +11,7 @@ export default function StaticPage({data}) {
         <Layout>
             <SEO title={tag.name} description={tag.name} />
             <div style={{width: `60%`, float: `left`}}>
-                <h1>{"タグ: " + tag.name}</h1>
+              <h1>{"タグ: " + tag.name}</h1>
                 {data.allMicrocmsArticles.edges.map(edge => {
                     return (<Article articleData={edge.node} />)
                 })}

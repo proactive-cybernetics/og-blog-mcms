@@ -9,8 +9,8 @@ import RightMenu from "../components/rightmenu"
 const IndexPage = ({data}) => (
   <Layout>
     <SEO title="Home" />
-    <h1>最新記事</h1>
     <div id="div-articles" style={{width: `65%`, float: `left`}}>
+      <h1>最新記事</h1>
       {data.allMicrocmsArticles.edges.map(edge => {
         return (<Article articleData={edge.node} />)
       })}

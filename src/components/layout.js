@@ -42,7 +42,7 @@ const Layout = ({ children }) => {
         <main style={{width:`100%`, overflow: `hidden`}}>{children}</main>
         <footer>
           <p style={{color: `silver`}}>
-            © {new Date().getFullYear()}, Built with
+            © <a href="https://proactive-cybernetics.netlify.app/page/intro">Oganesson</a> {new Date().getFullYear()}, Built with
             {` `}
             <a href="https://www.gatsbyjs.org">Gatsby</a>
           </p>

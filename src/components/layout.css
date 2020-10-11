@@ -633,12 +633,11 @@ img.thumbnail:after {
   list-style: none;
 }
 
-#toc {
-  padding: 1rem;
+.toc {
   border: thin solid silver;
-  margin: 1rem;  
+  padding: 1rem;  
 }
-#toc p {
+.toc p {
   margin-bottom: 0.5rem;
 }
 
@@ -650,4 +649,29 @@ img.thumbnail:after {
   margin-top: 70px;
   width: 30%;
   float: right;
+}
+
+#index-btn {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+
+  width: 40px;
+  height: 40px;
+  background: cyan;
+  color: white;
+  z-index: 1;
+  border-radius: 20px;
+
+  text-align: center;
+  line-height: 40px;
+}
+
+#bottom-toc {
+  position: fixed;
+  right: 30px;
+  bottom: 80px;
+  background: #333F;
+
+  z-index: 1;
 }

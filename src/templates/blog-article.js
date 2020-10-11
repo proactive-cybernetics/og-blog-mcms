@@ -1,9 +1,16 @@
 import React from "react"
+import {Helmet} from "react-helmet";
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import RightMenu from "../components/rightmenu"
 import Sharebutton from "../components/sharebuttons"
+import TOC from "../components/toc"
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faList } from '@fortawesome/free-solid-svg-icons'
+
+import toggle_bottom_toc from "../../gatsby-browser"
 
 export default function BlogArticle({data}) {
     const article = data.microcmsArticles;
@@ -19,7 +26,7 @@ export default function BlogArticle({data}) {
     return (
         <Layout>
             <SEO title={article.title} description={article.summary} />
-            <div id="article-body" style={{width: `60%`, float: `left`}}>
+            <div style={{width: `60%`, float: `left`}}>
               <h1>{article.title}</h1>
                 <a name="top"></a>
                 <p><span>タグ :  
@@ -27,26 +34,18 @@ export default function BlogArticle({data}) {
                       return (<a href={`/tag/${edge.slug}`}>{edge.name}{` `}</a>)
                   })}
                 </span>{`  `}<span style={{textAlign: `right`}}>{article.publishedAt} by {article.writer}</span></p>
-                <div id="toc">
-                  <p><strong>目次</strong></p>
-                  {toc.map(toc_elem =>{ 
-                    switch(toc_elem.name) {
-                      case 'h1':
-                        return ``
-                      case 'h2':
-                        return <p style={{fontSize:`0.9em`}}><a href={`#` + toc_elem.id}>{toc_elem.text}</a></p>
-                      case 'h3':
-                        return <p style={{fontSize:`0.8em`, paddingLeft:`20px`}}><a href={`#` + toc_elem.id}>{toc_elem.text}</a></p>
-                      default:
-                        return ``
-                    }
-                   })}
-                </div>
+                <div style={{margin: `1rem`}}><TOC toc={toc}/></div>
                 <div id="article-body" dangerouslySetInnerHTML={{ __html: article.body }}></div>
                 <Sharebutton slug={article.slug} title={article.title} />
                 <p style={{fontSize: `0.8rem`, paddingTop: `0.5rem`}}><a href="#top">↑先頭に戻る</a></p>
             </div>
             <RightMenu />
+      	    <div id="index-btn" onClick={toggle_bottom_toc}>
+	              <span style={{verticalAlign: `middle`, width:`100%`}}><FontAwesomeIcon icon={faList} /></span>
+	          </div>
+            <div id="bottom-toc" style={{visibility:'hidden'}}>
+              <TOC toc={toc}/>
+            </div>
         </Layout>
     )
 }

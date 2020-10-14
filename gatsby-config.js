@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: `Proactive Cybernetics`,
     description: `趣味は電子工作とホームページ作りです。`,
-    author: `Oganesson`,
+    author: `ぷろさい`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

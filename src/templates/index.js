@@ -29,6 +29,7 @@ export const query = graphql`
           id
           slug
           title
+          publishedAt(formatString: "YYYY年M月D日")
           tags {
             id
             name

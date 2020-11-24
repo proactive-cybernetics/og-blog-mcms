@@ -8,8 +8,9 @@ const Article = ({ articleData }) => (
           <div class={`article-summary`}>
             <div class={`article-summary-row`}>
               <div style={{display: `inline-block`}}>
-              <h2><Link to={'/article/'+articleData.slug}>{articleData.title}</Link></h2>
-              <p>{articleData.summary}</p>
+                <p><span style={{textAlign: `right`}}>{articleData.publishedAt}</span></p>
+                <h2><Link to={'/article/'+articleData.slug}>{articleData.title}</Link></h2>
+                <p>{articleData.summary}</p>
               </div>
             </div>
             <div style={{display: `block`}}>

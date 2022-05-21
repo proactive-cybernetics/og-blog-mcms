@@ -5,7 +5,8 @@
  */
 
 // You can delete this file if you're not using it
-function toggle_bottom_toc() {
+
+exports.toggle_bottom_toc = () => {
     if (document.getElementById("bottom-toc").style.visibility=='visible') {
         document.getElementById("bottom-toc").style.visibility='hidden';
         document.getElementById("index-btn").style.background='cyan';
@@ -16,4 +17,3 @@ function toggle_bottom_toc() {
     }
 }
 
-export default toggle_bottom_toc;
